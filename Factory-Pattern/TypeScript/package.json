@@ -1,0 +1,28 @@
+{
+  "name": "factory-pattern-typescript",
+  "version": "1.0.0",
+  "description": "factory-pattern",
+  "main": "Main.js",
+  "dependencies": {
+    "typescript": "^2.6.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Weglchri/Bac1-Umsetzung.git"
+  },
+  "keywords": [
+    "typescript",
+    "design pattern",
+    "factory"
+  ],
+  "author": "Christopher Wegl",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Weglchri/Bac1-Umsetzung/issues"
+  },
+  "homepage": "https://github.com/Weglchri/Bac1-Umsetzung#readme"
+}
