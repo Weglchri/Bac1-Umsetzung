@@ -1,2 +1,10 @@
-node_modules/*
-package-lock.json
+
+
+#JavaScript related
+Factory-Pattern/JavaScript/package-lock.json
+Factory-Pattern/JavaScript/node_modules/*
+
+#TypeScript related
+Factory-Pattern/TypeScript/jssrc
+Factory-Pattern/TypeScript/node_modules/*
+Factory-Pattern/TypeScript/package-lock.json
