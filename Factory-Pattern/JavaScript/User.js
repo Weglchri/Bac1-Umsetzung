@@ -1,5 +1,5 @@
 function User(username, name, age, address) {
-    this.username = username;
+    this._id = username;
     this.name = name;
     this.age = age;
     this.address = address;
