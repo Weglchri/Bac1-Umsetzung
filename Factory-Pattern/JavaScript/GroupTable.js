@@ -1,18 +1,18 @@
 const mongojs = require('mongojs');
-var db = mongojs('factorytable');
+var db = mongojs('factorydb');
 var groupscollection = db.collection('group');
 
 function GroupTable () {}
 
-GroupTable.prototype.findbygroupname = function(groupname) {
+GroupTable.prototype.findbygroupname = function(groupname, callback) {
     db.groupscollection.findOne(groupname, function (err, docs) {
-        console.log(docs);
+        callback(docs);
     });
 }
 
-GroupTable.prototype.findAll = function() {
+GroupTable.prototype.findAll = function(callback) {
     db.groupscollection.find(function (err, docs) {
-        console.log(docs);
+        callback(docs);
     });
 }
 

@@ -1,18 +1,19 @@
 const mongojs = require('mongojs');
-var db = mongojs('factorytable');
+var db = mongojs('factorydb');
 var userscollection = db.collection('users');
 
 function UserTable() {}
 
-UserTable.prototype.findbyname = function(name) {
-    db.userscollection.findOne(name, function (err, docs) {
-        return docs;
+
+UserTable.prototype.findbyusername = function(username, callback) {
+    db.userscollection.findOne(username, function (err, docs) {
+        callback(docs);
     });
 }
 
-UserTable.prototype.findAll = function() {
+UserTable.prototype.findAll = function(callback) {
     db.userscollection.find(function (err, docs) {
-        console.log(docs);
+       callback(docs);
     });
 }
 
