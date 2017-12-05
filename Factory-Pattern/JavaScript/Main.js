@@ -1,21 +1,26 @@
 var TableFactory = require('./TableFactory');
 var GroupTable = require('./GroupTable');
 var UserTable = require('./UserTable');
+var User = require("./User");
+var Group = require("./Group");
 
-var newfact = new TableFactory();
+var newfactory = new TableFactory();
 
-var usertable = newfact.createTable({type: "UserTable"});
+var usertable = newfactory.createTable("UserTable");
 
-var grouptable = newfact.createTable({type: "GroupTable"});
+var grouptable = newfactory.createTable("GroupTable");
 
-if (usertable instanceof UserTable) {
-    console.log("is an instance");
-}else{
-    console.log("usertbl is not an instance");
-}
+var user = new User("Christopher", 23, "Graz");
+var user2 = new User("Fritz", 56, "Kapfenberg");
 
-if (grouptable instanceof GroupTable) {
-    console.log("is an instance");
-}else{
-    console.log("groutbl is not an instance");
-}
+//usertable.insert(user);
+//usertable.findbyname({name: "Christopher"});
+
+var group = new Group("FH-Group");
+group.adduser(user);
+group.adduser(user2);
+
+group.deleteuser(user);
+grouptable.insert(group);
+console.log(group.getusers());
+

@@ -4,7 +4,8 @@
   "description": "factory-pattern",
   "main": "Main.js",
   "dependencies": {
-    "mongodb": "^2.2.33"
+    "mongodb": "^2.2.33",
+    "mongojs": "^2.4.1"
   },
   "devDependencies": {
     "mocha": "^4.0.1"
