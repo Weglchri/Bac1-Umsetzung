@@ -1,4 +1,6 @@
-export interface class Table() {
-    this.rows = "rows";
+import { User } from "./User"
+
+export interface class Table {
+    insert(user: User):void;
 }
 

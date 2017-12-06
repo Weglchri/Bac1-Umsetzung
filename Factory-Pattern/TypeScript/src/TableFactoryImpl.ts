@@ -9,6 +9,8 @@ export class TableFactoryImpl implements TableFactory {
                 return new UserTable();
             case "GroupTable":
                 return new GroupTable();
+            default:
+                console.log(new Error("undefined factory type"));
         }
     }
 }
