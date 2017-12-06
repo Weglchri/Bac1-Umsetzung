@@ -1,6 +1,6 @@
-import { User } from "./User"
 
-export interface class Table {
-    insert(user: User):void;
+export interface Table {
+    insert(criteria: object): void;
+    delete(criteria: object): void;
+    find(criteria: object): object;
 }
-

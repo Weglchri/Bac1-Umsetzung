@@ -4,11 +4,18 @@
   "description": "factory-pattern",
   "main": "Main.js",
   "dependencies": {
+    "@types/mocha": "^2.2.44",
+    "@types/node": "^8.0.56",
+    "assert": "^1.4.1",
+    "mongodb": "^3.0.0-rc0",
     "typescript": "^2.6.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "mocha": "^4.0.1"
+  },
   "scripts": {
-    "test": "mocha"
+    "pretest": "tsc test/Test.ts --outDir ./jssrctest",
+    "test": "mocha -- jssrctest/* "
   },
   "repository": {
     "type": "git",
