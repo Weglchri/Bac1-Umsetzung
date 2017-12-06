@@ -1,4 +1,4 @@
-import { TableFactoryImpl } from "./TableFactoryImpl"
+/*import { TableFactoryImpl } from "./TableFactoryImpl"
 import { GroupTable } from "./GroupTable"
 import { UserTable } from "./UserTable"
 import { Group } from "./Group"
@@ -25,4 +25,4 @@ if (grouptable instanceof GroupTable) {
     console.log("is an instance");
 }else{
     console.log("groutbl is not an instance");
-}
+}*/

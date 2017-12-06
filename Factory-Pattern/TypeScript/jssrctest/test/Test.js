@@ -1,6 +1,6 @@
 "use strict";
 exports.__esModule = true;
-var TableFactoryImpl_1 = require("./../jssrc/TableFactoryImpl");
+var TableFactoryImpl_1 = require("./../src/TableFactoryImpl");
 var assert = require("assert");
 describe('FactoryTest', function () {
     var newfactory;

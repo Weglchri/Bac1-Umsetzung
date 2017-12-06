@@ -1,7 +1,8 @@
 import { TableFactory } from "./TableFactory";
+import { Table } from "./Table"
 import { UserTable } from "./UserTable"
 import { GroupTable } from "./GroupTable"
-import { Table } from "./Table"
+
 
 export class TableFactoryImpl implements TableFactory {
     createTable(type: string):Table {

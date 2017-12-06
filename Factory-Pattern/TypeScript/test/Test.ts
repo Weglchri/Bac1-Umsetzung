@@ -1,14 +1,13 @@
-import { TableFactory } from "./../jssrc/TableFactory"
-import { TableFactoryImpl } from "./../jssrc/TableFactoryImpl"
-import 'mocha'
-import 'assert' 
 
-var assert = require('assert');
+import { TableFactory } from "./../src/TableFactory"
+import { TableFactoryImpl } from "./../src/TableFactoryImpl"
+import mocha = require('mocha');
+import assert = require('assert');
 
 
 describe('FactoryTest', function() {
   
-    let newfactory:TableFactoryImpl;
+    var newfactory:TableFactoryImpl;
     
     before(function() {
         newfactory = new TableFactoryImpl();

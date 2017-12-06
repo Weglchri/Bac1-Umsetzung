@@ -2,13 +2,13 @@
   "name": "factory-pattern-typescript",
   "version": "1.0.0",
   "description": "factory-pattern",
-  "main": "Main.js",
+  "main": "src/)",
   "dependencies": {
     "@types/mocha": "^2.2.44",
     "@types/node": "^8.0.56",
     "assert": "^1.4.1",
-    "mongodb": "^3.0.0-rc0",
-    "typescript": "^2.6.2"
+    "typescript": "^2.6.2",
+    "typings": "^2.1.1"
   },
   "devDependencies": {
     "mocha": "^4.0.1"
