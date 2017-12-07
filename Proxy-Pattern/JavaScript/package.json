@@ -1,0 +1,28 @@
+{
+  "name": "proxy-pattern-javascript",
+  "version": "1.0.0",
+  "description": "proxy-pattern",
+  "main": "Main.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Weglchri/Bac1-Umsetzung.git"
+  },
+  "keywords": [
+    "javascript",
+    "design",
+    "pattern",
+    "proxy"
+  ],
+  "author": "Christopher Wegl",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Weglchri/Bac1-Umsetzung/issues"
+  },
+  "homepage": "https://github.com/Weglchri/Bac1-Umsetzung#readme",
+  "dependencies": {
+    "mocha": "^4.0.1",
+  }
+}
