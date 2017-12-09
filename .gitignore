@@ -1,10 +1,14 @@
 
-
+#Factory
 #JavaScript related
 Factory-Pattern/JavaScript/package-lock.json
 Factory-Pattern/JavaScript/node_modules/*
 
 #TypeScript related
-Factory-Pattern/TypeScript/jssrc
 Factory-Pattern/TypeScript/node_modules/*
 Factory-Pattern/TypeScript/package-lock.json
+
+#Proxy
+#JavaScript
+Proxy-Pattern/JavaScript/package-lock.json
+Proxy-Pattern/JavaScript/node_modules/*

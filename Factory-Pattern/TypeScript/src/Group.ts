@@ -13,6 +13,7 @@ export class Group {
     } 
     
     adduser(user:User):void {
+        this.size++;
         this.userlist.push(user);
     }
     

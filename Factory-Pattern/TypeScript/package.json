@@ -14,8 +14,8 @@
     "mocha": "^4.0.1"
   },
   "scripts": {
-    "pretest": "tsc test/Test.ts --outDir ./jssrctest",
-    "test": "mocha -- jssrctest/* "
+    "pretest": "tsc test/Test.ts",
+    "test": "mocha -- test/Test.js "
   },
   "repository": {
     "type": "git",

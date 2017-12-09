@@ -24,5 +24,7 @@
   "homepage": "https://github.com/Weglchri/Bac1-Umsetzung#readme",
   "dependencies": {
     "mocha": "^4.0.1",
+    "mongodb": "^3.0.0-rc0",
+    "mongojs": "^2.4.1"
   }
 }

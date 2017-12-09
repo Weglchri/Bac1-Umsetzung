@@ -1,34 +1,37 @@
+var TableFactory = require('./../src/TableFactory');
+var GroupTable = require('./../src/GroupTable');
+var UserTable = require('./../src/UserTable');
+var Group = require("./../src/Group");
+var User = require("./../src/User");
 
-import { TableFactory } from "./../src/TableFactory"
-import { TableFactoryImpl } from "./../src/TableFactoryImpl"
-import { User } from "./../src/User"
-import { Group } from "./../src/Group"
-import mocha = require('mocha');
-import assert = require('assert');
+var assert = require('assert');
 
 
 describe('FactoryTest', function() {
   
-    let newfactory:TableFactory;
+    let newfactory;
+    
+    before(function() {
+        newfactory = new TableFactory();
+    });
     
     describe('#createFactoryTest', function() {
         it('default factory should be an instance of TableFactory', function() {
-            newfactory = new TableFactoryImpl();
-            assert.deepEqual(new TableFactoryImpl(), newfactory);
+            assert.deepEqual(new TableFactory(), newfactory);
         });
     });
     
     describe('#createUserFactoryTest', function() {
         it('user factory should be an instance of TableFactory', function() {
             let userfactory = newfactory.createTable("UserTable");
-            assert.deepEqual(new TableFactoryImpl(), userfactory);
+            assert.deepEqual(new TableFactory(), userfactory);
         });
     });
     
     describe('#createGroupFactoryTest', function() {
         it('group factory should be an instance of TableFactory', function() {
             let groupfactory = newfactory.createTable("GroupTable");
-            assert.deepEqual(new TableFactoryImpl(), groupfactory);
+            assert.deepEqual(new TableFactory(), groupfactory);
         });
     });
     
@@ -37,7 +40,7 @@ describe('FactoryTest', function() {
 
 describe('UserTest', function() {
     
-    let user:User;
+    let user;
     
     before(function() {
         user = new User("Weglchri15", "Christopher", 23, "Graz");
@@ -66,13 +69,13 @@ describe('UserTest', function() {
             assert.equal("Graz", user.address);            
         });
     });
-    
 });
+
 
 describe('GroupTest', function() {
    
-    let group:Group;
-    let user:User;
+    let group;
+    let user;
     
     beforeEach(function() {
        group = new Group("FH-Group");
@@ -112,10 +115,81 @@ describe('GroupTest', function() {
 });
 
 
+describe('UserTableTest', function() {
+  
+    let usertable;
+    let user;
+    let user2;
+    
+    before(function() {
+        usertable = new UserTable();
+        user = new User("Weglchri15", "Christopher", 23, "Graz");
+        user2 = new User("Weglchri", "Christopher", 23, "Graz");
+        usertable.insert(user);
+        usertable.insert(user2);
+    });
+     
+    describe('#findUserTableTest', function() {
+        it('find user in usertable', function(done) {
+            usertable.findbyusername(user, function(data) {
+                assert.deepEqual(user, data);
+                done();
+            });
+            
+        });
+    });
+    
+    describe('#findAllUserTableTest', function() {
+        it('find all users in usertable', function(done) {
+            usertable.findAll(function(data) {
+                assert.equal(2, data.length);
+                assert.equal("Weglchri", data[1]._id);
+                done();
+            });
+        });
+    });
+    
+});
 
 
 
-
-
+describe('GroupTableTest', function() {
+  
+    let grouptable;
+    let group;
+    let group2;
+    let user;
+    let user2;
+    
+    before(function() {
+        grouptable = new GroupTable();
+        group = new Group("FH-Group");
+        group2 = new Group("TU-Group");
+        user = new User("Weglchri15", "Christopher", 23, "Graz");
+        user2 = new User("Weglchri", "Christopher", 23, "Graz");
+        grouptable.insert(group);
+        grouptable.insert(group2);
+    });
+    
+    describe('#findGroupTableTest', function() {
+        it('find group in grouptable', function(done) {
+            grouptable.findbygroupname(group, function(data) {
+                assert.deepEqual(group, data);
+                done();
+            });
+            
+        });
+    });
+    
+    describe('#findAllUserTableTest', function() {
+        it('find all groups in grouptable', function(done) {
+            grouptable.findAll(function(data) {
+                assert.equal("TU-Group", data[1]._id);
+                done();
+            });
+        });
+    });
+    
+});
 
 
