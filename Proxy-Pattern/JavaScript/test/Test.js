@@ -1,7 +1,8 @@
 "use strict";
 
-var ServiceFactory = require("./ServiceFactory");
-var File = require("./File");
+var ServiceFactory = require("./../src/ServiceFactory");
+var File = require("./../src/File");
+var FileHandlerProxy = require("./../src/FileHandlerProxy");
 
 var assert = require("assert");
 
@@ -24,7 +25,7 @@ describe('FactoryTest', function() {
     
     describe('#FileHandlerCreateTest', function() {
         it('filehandler should be an instance of FilehandlerProxy', function() {
-            assert.notDeepEqual(servicefactory.createFileHandler(), filehandler);
+            assert.notDeepEqual(new FileHandlerProxy(), filehandler);
         });
     }); 
 });
