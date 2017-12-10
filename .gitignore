@@ -9,6 +9,11 @@ Factory-Pattern/TypeScript/node_modules/*
 Factory-Pattern/TypeScript/package-lock.json
 
 #Proxy
-#JavaScript
+#JavaScript related
 Proxy-Pattern/JavaScript/package-lock.json
 Proxy-Pattern/JavaScript/node_modules/*
+
+#Observer
+#JavaScript related
+#Observer-Pattern/JavaScript/package-lock.json
+#Observer-Pattern/JavaScript/node_modules/*

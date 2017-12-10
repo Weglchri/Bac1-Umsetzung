@@ -5,6 +5,7 @@ var File = require("./File");
 
 var assert = require("assert");
 
+
 describe('FactoryTest', function() {
   
     let servicefactory;
@@ -28,15 +29,8 @@ describe('FactoryTest', function() {
     }); 
 });
 
-describe('FileTest', function() {  
-    describe('#fileIdTest', function() {
-        it('file should have values File', function() {
-            let file = new File("Secret file");
-            assert.equal(1, file._id);
-            assert.equal("Secret file", file.filename);
-        });
-    });
-    
+
+describe('FileTest', function() {     
     describe('#fileNameTest', function() {
         it('file should have values File', function() {
             let file = new File("Secret file");
@@ -47,66 +41,90 @@ describe('FileTest', function() {
 
 
 describe('FileHandlerDeleteTest', function () {
-
-    let filehandler;
-    let file;
     
-    before(function () {
-        filehandler = new ServiceFactory().createFileHandler();
-        file = new File("testfile4");
-        filehandler.insertFile(file);
-    });
+    let filehandler = new ServiceFactory().createFileHandler();
+    let file1 = new File("testfile1");
+    let file2 = new File("testfile2");
     
-    describe('#deleteFile', function () {
+    describe('deleteFile', function () {
+        before(function () {
+            filehandler.insertFile(file1);
+        });
         it('filehandler should delete specific file in database', function () {
-            filehandler.deleteFile(file);
+                filehandler.deleteFile(file1);
+        });
+        after(function () {
+            filehandler.findFilebyFilename(file1, function (data) {
+                setTimeout(function (done) {
+                    assert.equal(null, data);
+                    done();
+                }, 5000);
+            });
         });
     });
-
+    
     describe('#deleteAll', function () {
+        before(function () {
+            filehandler.insertFile(file1);
+            filehandler.insertFile(file2);
+        });
         it('filehandler should delete all files in database', function () {
-            filehandler.deleteAll({});
+                filehandler.deleteAll({});
+        });
+        after(function () {
+            filehandler.findFilebyFilename(function (data) {
+                setTimeout(function (done) {
+                    assert.equal(null, data);
+                    done();
+                }, 5000);
+            });
         });
     });
 });
 
 
+describe('FileHandlerFind', function () {
 
-describe('FileHandlerSearchTest', function() {
-  
-    let filehandler;
-    let file1;
-    let file2;
-    
-    before(function() {
-        filehandler = new ServiceFactory().createFileHandler();
-        file1 = new File("testfile1");
-        filehandler.insertFile(file1);
-        file2 = new File("testfile2");
-        filehandler.insertFile(file2);
-    });
-   
-    
-    describe('#findAll', function () {
-        it('filehandler should find all files in database', function (done) {
-            filehandler.findAll(function (data) {
-                assert.equal(2, data.length);
-                assert.deepEqual(file1, data[0]);
-                assert.deepEqual(file2, data[1]); 
-                done();
-            });
-        });
-    });
+    let filehandler = new ServiceFactory().createFileHandler();
+    let file1 = new File("testfile1");
+    let file2 = new File("testfile2");
 
     describe('#findFilebyFilename', function () {
-        it('filehandler should find file in database by filename', function (done) {
-            filehandler.findFilebyFilename(file1, function (data) {
-                assert.deepEqual(file1, data);
-                done();
-            });
+        before(function () {
+            filehandler.insertFile(file1);
+        });
+        it('filehandler should find file in database by filename', function () {
+            setTimeout(function (done) {
+                filehandler.findFilebyFilename(file1, function (data) {
+                    assert.deepEqual(file1, data);
+                    done();
+                });
+            }, 5000);
+        });
+        after(function () {
+             filehandler.deleteFile(file1);       
         });
     });
-   
+
+    describe('#findAll', function () {
+        before(function () {
+            filehandler.insertFile(file1);
+            filehandler.insertFile(file2);
+        });
+        it('filehandler should find all files in database', function () {
+            setTimeout(function (done) {
+                filehandler.findAll(function (data) {
+                    assert.equal(2, data.length);
+                    assert.deepEqual(file1, data[0]);
+                    assert.deepEqual(file2, data[1]);
+                    done();
+                });
+            }, 5000);
+        });
+        after(function () {
+             filehandler.deleteAll();       
+        }); 
+    });
 });
 
 

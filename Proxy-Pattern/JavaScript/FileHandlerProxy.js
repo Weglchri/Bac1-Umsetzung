@@ -1,10 +1,9 @@
 'use strict';
 
 function FileHandlerProxy(Filehandler) {
-
     //private object Filehandler 
     var Filehandler = Filehandler;
-    
+
     //privileged methods
     //user of filehandler don't recognise the proxy
     this.insertFile = function (file) {
@@ -34,30 +33,9 @@ function FileHandlerProxy(Filehandler) {
     this.deleteAll = function() {
         Filehandler.deleteAll();
     };
+    
 }
 
 
-/*
-FileHandlerProxy.prototype.insertFile = function (file) {
-    this.getFilehandler.insertFile(file);
-};
-
-
-FileHandlerProxy.prototype.findAll = function (callback) {
-    this.getFilehandler.findAll(function(data){
-        callback(data);
-    });
-};
-
-FileHandlerProxy.prototype.findFilebyFilename = function (filename, callback) {
-    this.getFilehandler.findFilebyFilename(filename, function(data){
-        callback(data);
-    });
-};
-
-FileHandlerProxy.prototype.updateFile = function () {};
-
-FileHandlerProxy.prototype.deleteFile = function () {};
-*/
 
 module.exports = FileHandlerProxy;
