@@ -1,9 +1,10 @@
 "use strict";
-var Sequencegenerator = require("./Sequencegenerator");
 
-function File(filename) {
-    this._id = Sequencegenerator().getNexValue();
-    this.filename = filename;
+class File {
+    constructor(id, filename) {
+        this._id = id;
+        this.filename = filename;
+    }
 }
 
 module.exports = File;
