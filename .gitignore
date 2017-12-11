@@ -1,24 +1,75 @@
+###Creational Pattern
 
-#Factory
+##Singleton
+
+#JavaScript related
+Singleton-Pattern/JavaScript/package-lock.json
+Singleton-Pattern/JavaScript/node_modules/*
+
+#TypeScript related
+Singleton-Pattern/TypeScript/package-lock.json
+Singleton-Pattern/TypeScript/node_modules/*
+
+
+##Factory
+
 #JavaScript related
 Factory-Pattern/JavaScript/package-lock.json
 Factory-Pattern/JavaScript/node_modules/*
 
 #TypeScript related
-Factory-Pattern/TypeScript/node_modules/*
 Factory-Pattern/TypeScript/package-lock.json
+Factory-Pattern/TypeScript/node_modules/*
 
-#Proxy (?)
+
+
+###Structural Pattern
+
+##Facade
+
 #JavaScript related
-Proxy-Pattern/JavaScript/package-lock.json
-Proxy-Pattern/JavaScript/node_modules/*
+Facade-Pattern/JavaScript/package-lock.json
+Facade-Pattern/JavaScript/node_modules/*
 
-#Observer
+#TypeScript related
+Facade-Pattern/TypeScript/package-lock.json
+Facade-Pattern/TypeScript/node_modules/*
+
+
+##Composite
+
+#JavaScript related
+Composite-Pattern/JavaScript/package-lock.json
+Composite-Pattern/JavaScript/node_modules/*
+
+#TypeScript related
+Composite-Pattern/TypeScript/node_modules/*
+Composite-Pattern/TypeScript/package-lock.json
+
+
+
+###Behavioral Pattern
+
+##Observer
+
 #JavaScript related
 Observer-Pattern/JavaScript/package-lock.json
 Observer-Pattern/JavaScript/node_modules/*
 
-#Singleton
-#JavaScript related
-Singleton-Pattern/JavaScript/package-lock.json
-Singleton-Pattern/JavaScript/node_modules/*
+#TypeScript related
+Observer-Pattern/TypeScript/package-lock.json
+Observer-Pattern/TypeScript/node_modules/*
+
+
+##Command
+
+Command-Pattern/JavaScript/package-lock.json
+Command-Pattern/JavaScript/node_modules/*
+
+#TypeScript related
+Command-Pattern/TypeScript/package-lock.json
+Command-Pattern/TypeScript/node_modules/*
+
+
+
+
