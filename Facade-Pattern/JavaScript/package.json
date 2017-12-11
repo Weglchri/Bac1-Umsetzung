@@ -1,7 +1,7 @@
 {
-  "name": "singleton-pattern-javascript",
+  "name": "facade-pattern-javascript",
   "version": "1.0.0",
-  "description": "singleton-pattern",
+  "description": "facade-pattern",
   "main": "Test.js",
   "directories": {
     "test": "test"
@@ -16,7 +16,7 @@
   "keywords": [
     "javascript",
     "design pattern",
-    "singleton"
+    "facade"
   ],
   "author": "Christopher Wegl",
   "license": "ISC",
