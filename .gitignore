@@ -1,4 +1,4 @@
-###Creational Pattern
+-----------------Creational Pattern------------------
 
 ##Singleton
 
@@ -23,7 +23,7 @@ Factory-Pattern/TypeScript/node_modules/*
 
 
 
-###Structural Pattern
+-----------------Structural Pattern-----------------
 
 ##Facade
 
@@ -48,7 +48,7 @@ Composite-Pattern/TypeScript/package-lock.json
 
 
 
-###Behavioral Pattern
+-----------------Behavioral Pattern-----------------
 
 ##Observer
 
