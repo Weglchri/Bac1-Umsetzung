@@ -8,7 +8,7 @@ Factory-Pattern/JavaScript/node_modules/*
 Factory-Pattern/TypeScript/node_modules/*
 Factory-Pattern/TypeScript/package-lock.json
 
-#Proxy
+#Proxy (?)
 #JavaScript related
 Proxy-Pattern/JavaScript/package-lock.json
 Proxy-Pattern/JavaScript/node_modules/*
@@ -17,3 +17,8 @@ Proxy-Pattern/JavaScript/node_modules/*
 #JavaScript related
 Observer-Pattern/JavaScript/package-lock.json
 Observer-Pattern/JavaScript/node_modules/*
+
+#Singleton
+#JavaScript related
+Singleton-Pattern/JavaScript/package-lock.json
+Singleton-Pattern/JavaScript/node_modules/*
