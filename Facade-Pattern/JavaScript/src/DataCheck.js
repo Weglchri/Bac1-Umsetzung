@@ -1,4 +1,4 @@
-class Worker {
+class DataCheck {
     constructor() {}
     checkInsurance(person) {
         if(person.age < 18) {
@@ -7,7 +7,7 @@ class Worker {
         } else if (person.account === "invalid") {
             console.log("Can't set insurance with invalid account");
             return false;
-        } else if (person.insurance === true) {
+        } else if (person.insurance === "yes") {
             console.log("Person already has a insurance");
             return false;
         } else {
@@ -16,4 +16,4 @@ class Worker {
     }
 }
 
-module.exports = Worker;
+module.exports = DataCheck;

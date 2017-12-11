@@ -1,17 +1,17 @@
 class Validator {
     constructor() {}
     validatePersonData(person) {
-        if (person === undefined || person === null) {
+        if (!person) {
             return false;
-        } else if (person.name === undefined) {
+        } else if (!person.name) {
             return false;
-        } else if (person.age === undefined) {
+        } else if (!person.age) {
             return false;
-        } else if (person.account === undefined) {
+        } else if (!person.account) {
             return false;
-        } else if (person.transactions === undefined) {
+        } else if (!person.transactions) {
             return false;
-        } else if (person.insurance === undefined) {
+        } else if (!person.insurance) {
             return false;
         } else {
             return true;
