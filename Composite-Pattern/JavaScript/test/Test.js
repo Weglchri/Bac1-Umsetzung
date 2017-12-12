@@ -80,6 +80,7 @@ describe('CompositeDatabaseTest', function () {
     let filehandler;
     let folder1;
     let file1;
+    let file2;
 
     before(function () {
         filehandler = new Filehandler();
@@ -87,7 +88,7 @@ describe('CompositeDatabaseTest', function () {
         let folder2 = new Folder("src");
         let folder3 = new Folder("test");
         file1 = new File("Script.js", 1024);
-        let file2 = new File("Test.js", 1024);
+        file2 = new File("Test.js", 1024);
         let file3 = new File("Package.json", 512);
 
         folder2.addNode(file1);
@@ -97,10 +98,13 @@ describe('CompositeDatabaseTest', function () {
         folder1.addNode(folder3);
         folder1.addNode(file3);
     });
+    
+    after(function(){
+       filehandler.deleteAll(); 
+    });
 
     describe('#checkFileHandlerInsert', function () {
         it('folder insert check', function (done) {
-            filehandler.insert(folder1);
             filehandler.insert(file1);
             setTimeout(function () {
                 filehandler.findByFilename(file1, function (data) {
@@ -110,6 +114,20 @@ describe('CompositeDatabaseTest', function () {
             }, 100);
         });
     });
-
-
+    
+    describe('#checkFileHandlerFind', function () {
+        it('folder find check', function (done) {
+            filehandler.insert(folder1);
+            setTimeout(function () {
+                filehandler.findAll(function (data) {
+                    let file = new File();
+                    file.name = data[1].nodes[1].nodes[0].name;
+                    file.size = data[1].nodes[1].nodes[0].size;
+                    //data is the raw object without functions
+                    assert.deepEqual(file2, file);
+                    done();
+                });
+            }, 100);
+        });
+    });
 });
