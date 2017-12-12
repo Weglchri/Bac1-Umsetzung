@@ -3,15 +3,15 @@ Bac1-Implementation
 
 Reposity contains listed following design patterns implemented with ES6 standard.
 
-####Components:
-JavaScript: ES6
-Mocha: 4.0.1
-MongoJS: 2.4.1
+<h4>Components:</h4><br>
+JavaScript: ES6<br>
+Mocha: 4.0.1<br>
+MongoJS: 2.4.1<br>
 Mongodb: 2.2.33
 
 <h3>Creational Pattern</h3>
 
-#####Singleton
+<h4>Singleton</h4>
 
 <p>Singleton implementation</p>
 <p>Implemented logger object build with the Singleton pattern used in a business application use case</p>
