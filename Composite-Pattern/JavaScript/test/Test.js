@@ -9,29 +9,29 @@ var assert = require('assert');
 
 describe('ConstructorTest', function () {
     
-    describe('#checkNode', function () {
-        it('node data check', function () {
+    describe('#NodeTest', function () {
+        it('node instatiation test', function () {
             let node = new Node();
             assert.deepEqual(new Node(), node);
         });
     });
 
-    describe('#checkFolder', function () {
-        it('folder data check', function () {
+    describe('#FolderTest', function () {
+        it('folder instatiation test', function () {
             let folder = new Folder();
             assert.deepEqual(new Folder(), folder);
         });
     });
 
-    describe('#checkFile', function () {
-        it('file data check', function () {
+    describe('#FileTest', function () {
+        it('file instatiation test', function () {
             let file = new File();
             assert.deepEqual(new File, file);
         });
     });
     
-    describe('#checkNode', function () {
-        it('node data check', function () {
+    describe('#FileHandlerTest', function () {
+        it('filehandler instatiation test', function () {
             let  filehandler = new Filehandler();
             assert.deepEqual(new Filehandler(), filehandler);
         });
@@ -60,14 +60,14 @@ describe('CompositeStructurTest', function () {
         folder1.addNode(file3);
     });
 
-    describe('#checkFolderSize', function () {
-        it('folder size check', function () {
+    describe('#FolderSizeTest', function () {
+        it('compare size of folder', function () {
             assert.equal(2560, folder1.getSize());
         });
     });
 
-    describe('#checkFolderFiles', function () {
-        it('folder files check', function () {
+    describe('#FolderNumberTest', function () {
+        it('compare number of folders', function () {
             assert.equal(3, folder1.getNumberOfFiles());
         });
     });
@@ -103,8 +103,8 @@ describe('CompositeDatabaseTest', function () {
        filehandler.deleteAll(); 
     });
 
-    describe('#checkFileHandlerInsert', function () {
-        it('folder insert check', function (done) {
+    describe('#FileHandlerTest', function () {
+        it('test folder insert ', function (done) {
             filehandler.insert(file1);
             setTimeout(function () {
                 filehandler.findByFilename(file1, function (data) {
@@ -115,15 +115,14 @@ describe('CompositeDatabaseTest', function () {
         });
     });
     
-    describe('#checkFileHandlerFind', function () {
-        it('folder find check', function (done) {
+    describe('#FileHandlerTest', function () {
+        it('test folder structure', function (done) {
             filehandler.insert(folder1);
             setTimeout(function () {
                 filehandler.findAll(function (data) {
                     let file = new File();
                     file.name = data[1].nodes[1].nodes[0].name;
                     file.size = data[1].nodes[1].nodes[0].size;
-                    //data is the raw object without functions
                     assert.deepEqual(file2, file);
                     done();
                 });

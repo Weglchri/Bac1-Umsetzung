@@ -212,7 +212,7 @@ describe('GroupTableTest', function () {
                     assert.equal(user.name, data[0].userlist[0].name);
                     done();
                 });
-            }, 100);
+            }, 200);
         });
     });
 

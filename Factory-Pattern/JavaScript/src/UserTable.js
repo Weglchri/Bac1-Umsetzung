@@ -2,32 +2,35 @@ const mongojs = require('mongojs');
 var db = mongojs('factorydb');
 var userscollection = db.collection('users');
 
-function UserTable() {}
+class UserTable {
+
+    constructor() {}
+
+    findByUsername(username, callback) {
+        db.userscollection.findOne(username, function (err, docs) {
+            callback(docs);
+        });
+    }
+
+    findAll(callback) {
+        db.userscollection.find(function (err, docs) {
+            callback(docs);
+        });
+    }
+
+    insert(user) {
+        db.userscollection.save(user);
+    }
+
+    delete(user) {
+        db.userscollection.remove(user);
+    }
+
+    deleteAll() {
+        db.userscollection.remove({});
+    }
 
 
-UserTable.prototype.findByUsername = function(username, callback) {
-    db.userscollection.findOne(username, function (err, docs) {
-        callback(docs);
-    });
 }
-
-UserTable.prototype.findAll = function(callback) {
-    db.userscollection.find(function (err, docs) {
-       callback(docs);
-    });
-}
-
-UserTable.prototype.insert = function(user) {
-    db.userscollection.save(user);
-}
-
-UserTable.prototype.delete = function(user) {
-    db.userscollection.remove(user);
-}
-
-UserTable.prototype.deleteAll = function() {
-    db.userscollection.remove({});
-}
-
 
 module.exports = UserTable;
