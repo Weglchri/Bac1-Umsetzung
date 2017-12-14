@@ -1,4 +1,3 @@
-
 let instance = null;
 
 class Logger {
@@ -6,8 +5,8 @@ class Logger {
         if(!instance){
             instance = this;
         }
-        this.time = new Date();
         this.logs = [];
+        this.time = new Date();
         return instance;
     }  
     

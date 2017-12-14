@@ -4,7 +4,7 @@ var Logger = require("./../src/Logger");
 var assert = require('assert');
 
 
-describe('SingletonTest', function () {
+describe('ConstructorTest', function () {
 
     let logger;
     let logger2;
@@ -17,34 +17,29 @@ describe('SingletonTest', function () {
         }, 1500);
     });
 
-    describe('#createSingletonInstance', function () {
-        it('should be an instance of Logger', function () {
+    describe('#SingletonTest', function () {
+        it('test singleton instatiation', function () {
             assert.deepEqual(new Logger(), logger);
         });
     });
 
-    describe('#compareLogger', function () {
-        it('check if its the same instance', function () {
+    describe('#SingletonTest', function () {
+        it('comapare instances of logger', function () {
             assert.equal(logger, logger2);
         });
     });
 
-    describe('#compareLogger', function () {
-        it('check if its the same instance', function () {
+
+    describe('#SingletonTest', function () {
+        it('comapare time of both logger', function () {
             assert.equal(logger.time, logger2.time);
         });
     });
 
-    describe('#testConsoleLog', function () {
-        it('check method print of logger', function () {
-            assert.equal("Done", logger.print("Done"));
-        });
-    });
-
-    describe('#testConsoleErrorLog', function () {
-        it('check method printError of logger', function () {
-            const err = new Error("Fatal error");
-            assert.deepEqual(err.message, logger.printError("Fatal error"));
+    describe('#SingletonMethodTest', function () {
+        it('test logged text message', function () {
+            logger.log("Fatal Error");
+            assert.equal("Fatal Error", logger.logs[0]);
         });
     });
 

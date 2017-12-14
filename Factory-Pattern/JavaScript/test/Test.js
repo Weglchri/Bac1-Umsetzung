@@ -7,7 +7,7 @@ var User = require("./../src/User");
 var assert = require('assert');
 
 
-describe('FactoryTest', function () {
+describe('ConstructorTest', function () {
 
     let newfactory;
 
@@ -15,30 +15,30 @@ describe('FactoryTest', function () {
         newfactory = new TableFactory();
     });
 
-    describe('#createFactoryTest', function () {
-        it('default factory should be an instance of TableFactory', function () {
+    describe('#FactoryTest', function () {
+        it('test factory instantiation', function () {
             assert.deepEqual(new TableFactory(), newfactory);
         });
     });
 
-    describe('#createUserFactoryTest', function () {
-        it('user factory should be an instance of TableFactory', function () {
-            let userfactory = newfactory.createTable("UserTable");
-            assert.deepEqual(new TableFactory(), userfactory);
+    describe('#UserTableTest', function () {
+        it('test userTable creation', function () {
+            let usertable = newfactory.createTable("UserTable");
+            assert.deepEqual(new UserTable(), usertable);
         });
     });
 
     describe('#createGroupFactoryTest', function () {
-        it('group factory should be an instance of TableFactory', function () {
-            let groupfactory = newfactory.createTable("GroupTable");
-            assert.deepEqual(new TableFactory(), groupfactory);
+        it('test groupTable creation', function () {
+            let grouptable = newfactory.createTable("GroupTable");
+            assert.deepEqual(new GroupTable(), grouptable);
         });
     });
 
 });
 
 
-describe('UserTest', function () {
+describe('UserClassTest', function () {
 
     let user;
 
@@ -46,33 +46,33 @@ describe('UserTest', function () {
         user = new User("Weglchri15", "Christopher", 23, "Graz");
     });
 
-    describe('#userIdTest', function () {
-        it('user id matching', function () {
+    describe('#UserTest', function () {
+        it('comapare user id', function () {
             assert.equal("Weglchri15", user._id);
         });
     });
 
-    describe('#userNameTest', function () {
-        it('user name matching', function () {
+    describe('#UserTest', function () {
+        it('compare user name', function () {
             assert.equal("Christopher", user.name);
         });
     });
 
-    describe('#userAgeTest', function () {
-        it('user age matching', function () {
+    describe('#UserTest', function () {
+        it('compare user age', function () {
             assert.equal(23, user.age);
         });
     });
 
-    describe('#userAddressTest', function () {
-        it('user address matching', function () {
+    describe('#UserTest', function () {
+        it('compare user address', function () {
             assert.equal("Graz", user.address);
         });
     });
 });
 
 
-describe('GroupTest', function () {
+describe('GroupClassTest', function () {
 
     let group;
     let user;
@@ -82,33 +82,19 @@ describe('GroupTest', function () {
         user = new User("Weglchri15", "Christopher", 23, "Graz");
     });
 
-    describe('#groupIdTest', function () {
-        it('group id matching', function () {
+    describe('#GroupTest', function () {
+        it('compare group id', function () {
             assert.equal("FH-Group", group._id);
         });
     });
 
-    describe('#groupUserAddTest', function () {
-        it('group user add', function () {
+    describe('#GroupTest', function () {
+        it('compare group size', function () {
             group.adduser(user);
             assert.equal(1, group.getusers().length);
-            assert.equal("Weglchri15", (group.getusers()[0])._id);
-        });
-    });
-
-    describe('#groupUserDeleteTest', function () {
-        it('group user delete', function () {
-            group.adduser(user);
-            assert.equal(1, group.getusers().length);
+            assert.equal(group.getusers().length, group.size);
             group.deleteuser(user);
             assert.equal(0, group.getusers().length);
-        });
-    });
-
-    describe('#groupSizeTest', function () {
-        it('group size matching', function () {
-            group.adduser(user);
-            assert.equal(1, group.size);
         });
     });
 
@@ -121,31 +107,50 @@ describe('UserTableTest', function () {
     let user;
     let user2;
 
-    before(function () {
+    beforeEach(function () {
         usertable = new UserTable();
         user = new User("Weglchri15", "Christopher", 23, "Graz");
-        user2 = new User("Weglchri", "Christopher", 23, "Graz");
+        user2 = new User("HerbertKa2", "Herbert", 100, "Wien");
         usertable.insert(user);
         usertable.insert(user2);
     });
 
-    describe('#findUserTableTest', function () {
-        it('find user in usertable', function (done) {
-            usertable.findbyusername(user, function (data) {
-                assert.deepEqual(user, data);
-                done();
-            });
+    afterEach(function () {
+        usertable.deleteAll();
+    });
 
+    describe('#UserTableTest', function () {
+        it('test find specific user in usertable', function (done) {
+            setTimeout(function () {
+                usertable.findbyusername(user, function (data) {
+                    assert.deepEqual(user, data);
+                    done();
+                });
+            }, 100);
         });
     });
 
-    describe('#findAllUserTableTest', function () {
-        it('find all users in usertable', function (done) {
-            usertable.findAll(function (data) {
-                assert.equal(2, data.length);
-                assert.equal("Weglchri", data[1]._id);
-                done();
-            });
+    describe('#UserTableTest', function () {
+        it('test find all users in database', function (done) {
+            setTimeout(function () {
+                usertable.findAll(function (data) {
+                    assert.equal(2, data.length);
+                    assert.equal("HerbertKa2", data[1]._id);
+                    done();
+                });
+            }, 100);
+        });
+    });
+
+    describe('#UserTableTest', function () {
+        it('delete specific users in database', function (done) {
+            usertable.delete(user);
+            setTimeout(function () {
+                usertable.findbyusername(user, function (data) {
+                    assert.equal(null, data);
+                    done();
+                });
+            }, 100);
         });
     });
 
@@ -161,7 +166,7 @@ describe('GroupTableTest', function () {
     let user;
     let user2;
 
-    before(function () {
+    beforeEach(function () {
         grouptable = new GroupTable();
         group = new Group("FH-Group");
         group2 = new Group("TU-Group");
@@ -172,33 +177,44 @@ describe('GroupTableTest', function () {
         grouptable.insert(group2);
     });
 
-    describe('#findGroupTableTest', function () {
-        it('find group in grouptable', function (done) {
-            grouptable.findbygroupname(group, function (data) {
-                assert.deepEqual(group, data);
-                done();
-            });
-
-        });
+    afterEach(function () {
+        grouptable.deleteAll();
     });
 
-    describe('#findGroupTableTest', function () {
-        it('find grou with id', function (done) {
-            grouptable.findAll(function (data) {
-                assert.equal("TU-Group", data[1]._id);
-                done();
-            });
+    describe('#GroupTable', function () {
+
+        it('find specific group in database', function (done) {
+            setTimeout(function () {
+                grouptable.findbygroupname(group, function (data) {
+                    assert.deepEqual(group, data);
+                    done();
+                });
+            }, 100);
         });
+
     });
 
-    describe('#findUsersGroupTest', function () {
-        it('check user in group', function (done) {
-            grouptable.findAll(function (data) {
-                assert.equal("FH-Group", data[0]._id);
-                console.log(data.users);
-                assert.deepEqual(user, data[0].userlist[0]);
-                done();
-            });
+    describe('#GroupTable', function () {
+
+        it('find all groups in database', function (done) {
+            setTimeout(function () {
+                grouptable.findAll(function (data) {
+                    assert.equal(2, data.length);
+                    done();
+                });
+            }, 100);
+        });
+
+    });
+
+    describe('#GroupTable', function () {
+        it('find group users in group', function (done) {
+            setTimeout(function () {
+                grouptable.findAll(function (data) {
+                    assert.deepEqual(user, data[0].userlist[0]);
+                    done();
+                });
+            }, 100);
 
         });
     });
