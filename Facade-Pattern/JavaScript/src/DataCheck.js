@@ -1,19 +1,26 @@
+var Logger = require("./Logger");
+
 class DataCheck {
+    
     constructor() {}
+    
     checkInsurance(person) {
+        
         if(person.age < 18) {
-            console.log("Can't set insurance for underaged person");
+            new Logger().printMessage("Can't set insurance for underaged person");
             return false;
         } else if (person.account === "invalid") {
-            console.log("Can't set insurance with invalid account");
+            new Logger().printMessage("Can't set insurance with invalid account");
             return false;
         } else if (person.insurance === "yes") {
-            console.log("Person already has a insurance");
+            new Logger().printMessage("Person already has a insurance");
             return false;
         } else {
             return true;
         } 
+    
     }
+    
 }
 
 module.exports = DataCheck;

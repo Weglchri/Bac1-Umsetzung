@@ -3,15 +3,24 @@ var Validator = require("./Validator");
 var Logger = require("./Logger");
 
 class AccountService {
+
     constructor() {}
+
     checkPersonInsuranceClaim(person) {
+
+        var permission = false;
+
         if (new Validator().validatePersonData(person) === true) {
-            let processed = new DataCheck().checkInsurance(person);
-            new Logger().printProcessed("Person permission: " + processed);
-            return processed;
+
+            let permission = new DataCheck().checkInsurance(person);
+            new Logger().printMessage("Person permission: " + permission);
+            return permission;
+
         } else {
-            new Logger().printUnprocessed("Person permission: false");
-            return false;
+
+            new Logger().printMessage("Person permission: " + permission);
+            return permission;
+
         }
     }
 }
