@@ -4,7 +4,7 @@ var groupscollection = db.collection('group');
 
 function GroupTable () {}
 
-GroupTable.prototype.findbygroupname = function(groupname, callback) {
+GroupTable.prototype.findByGroupname = function(groupname, callback) {
     db.groupscollection.findOne(groupname, function (err, docs) {
         callback(docs);
     });

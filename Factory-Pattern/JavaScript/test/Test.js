@@ -90,11 +90,11 @@ describe('GroupClassTest', function () {
 
     describe('#GroupTest', function () {
         it('compare group size', function () {
-            group.adduser(user);
-            assert.equal(1, group.getusers().length);
-            assert.equal(group.getusers().length, group.size);
-            group.deleteuser(user);
-            assert.equal(0, group.getusers().length);
+            group.addUser(user);
+            assert.equal(1, group.getUsers().length);
+            assert.equal(group.getUsers().length, group.size);
+            group.deleteUser(user);
+            assert.equal(0, group.getUsers().length);
         });
     });
 
@@ -122,7 +122,7 @@ describe('UserTableTest', function () {
     describe('#UserTableTest', function () {
         it('test find specific user in usertable', function (done) {
             setTimeout(function () {
-                usertable.findbyusername(user, function (data) {
+                usertable.findByUsername(user, function (data) {
                     assert.deepEqual(user, data);
                     done();
                 });
@@ -146,7 +146,7 @@ describe('UserTableTest', function () {
         it('delete specific users in database', function (done) {
             usertable.delete(user);
             setTimeout(function () {
-                usertable.findbyusername(user, function (data) {
+                usertable.findByUsername(user, function (data) {
                     assert.equal(null, data);
                     done();
                 });
@@ -172,7 +172,7 @@ describe('GroupTableTest', function () {
         group2 = new Group("TU-Group");
         user = new User("Weglchri15", "Christopher", 23, "Graz");
         user2 = new User("Weglchri", "Christopher", 23, "Graz");
-        group.adduser(user);
+        group.addUser(user);
         grouptable.insert(group);
         grouptable.insert(group2);
     });
@@ -182,20 +182,17 @@ describe('GroupTableTest', function () {
     });
 
     describe('#GroupTable', function () {
-
         it('find specific group in database', function (done) {
             setTimeout(function () {
-                grouptable.findbygroupname(group, function (data) {
+                grouptable.findByGroupname(group, function (data) {
                     assert.deepEqual(group, data);
                     done();
                 });
             }, 100);
         });
-
     });
 
     describe('#GroupTable', function () {
-
         it('find all groups in database', function (done) {
             setTimeout(function () {
                 grouptable.findAll(function (data) {
@@ -208,14 +205,14 @@ describe('GroupTableTest', function () {
     });
 
     describe('#GroupTable', function () {
-        it('find group users in group', function (done) {
+        it('find user in group', function (done) {
             setTimeout(function () {
                 grouptable.findAll(function (data) {
-                    assert.deepEqual(user, data[0].userlist[0]);
+                    assert.equal(user._id, data[0].userlist[0]._id);
+                    assert.equal(user.name, data[0].userlist[0].name);
                     done();
                 });
             }, 100);
-
         });
     });
 

@@ -11,7 +11,7 @@ class Logger {
         return instance;
     }  
     
-     printMessage(msg) {
+    printMessage(msg) {
         console.log(msg);
     }
     
@@ -28,7 +28,7 @@ class Logger {
         this.logItem(err);
         console.log(err.message);
     }
-     
+    
 }
 
 module.exports = Logger;

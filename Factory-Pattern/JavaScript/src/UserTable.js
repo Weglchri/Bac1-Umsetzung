@@ -5,7 +5,7 @@ var userscollection = db.collection('users');
 function UserTable() {}
 
 
-UserTable.prototype.findbyusername = function(username, callback) {
+UserTable.prototype.findByUsername = function(username, callback) {
     db.userscollection.findOne(username, function (err, docs) {
         callback(docs);
     });

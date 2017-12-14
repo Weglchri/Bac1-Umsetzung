@@ -38,7 +38,7 @@ describe('ConstructorTest', function () {
 
     describe('#SingletonMethodTest', function () {
         it('test logged text message', function () {
-            logger.log("Fatal Error");
+            logger.logItem("Fatal Error");
             assert.equal("Fatal Error", logger.logs[0]);
         });
     });

@@ -1,13 +1,13 @@
 var Observer = require("./Observer");
+var Logger = require("./Logger");
 
 class NotificationObserver extends Observer {
     constructor() {
         super();
     }
 
-    update(val) {
-        console.log("Following changes where made: " + val);
-        return "Following changes were made: " + val;
+    update(ctx) {
+        console.log("Following changes in object were made: " + JSON.stringify(ctx));
     }
 }
 

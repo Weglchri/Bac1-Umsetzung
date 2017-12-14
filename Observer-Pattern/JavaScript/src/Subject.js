@@ -15,9 +15,9 @@ class Subject {
         }
     }
 
-    notify(ctx) {
+    notify() {
         for (var i = 0; i < this.observers.length; i++) {
-            this.observers[i].update(ctx);
+            this.observers[i].update(this);
         }
     }
 }

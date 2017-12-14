@@ -10,13 +10,24 @@ class Logger {
         return instance;
     }  
     
-    print(msg) {
+     printMessage(msg) {
         console.log(msg);
     }
     
-    log(msg) {
-        this.logs.push(msg);
+    logItem(msg) {
+        this.logs.push(msg);   
     }
+    
+    lastLoggedItem() {
+        return this.logs[this.logs.length-1];
+    }
+    
+    throwError(msg) {
+        const err = new Error(msg);
+        this.logItem(err);
+        console.log(err.message);
+    }
+    
 }
 
 module.exports = Logger;

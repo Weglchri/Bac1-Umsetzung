@@ -6,20 +6,17 @@ class Knight {
 
     //knight actor jump action
     jumpmove() {
-        new Logger().print("jumpmove");
-        new Logger().log("jumpmove");
+        new Logger().logItem("jumpmove");
     }
 
     //knight actor sword action
     swordslash() {
-        new Logger().print("swordslash");
-        new Logger().log("swordslash");
+        new Logger().logItem("swordslash");
     }
 
     //knight actor shield action
     shieldblock() {
-        new Logger().print("shieldblock");
-        new Logger().log("shieldblock");
+        new Logger().logItem("shieldblock");
     }
 
 }
