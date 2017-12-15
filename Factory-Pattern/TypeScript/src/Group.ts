@@ -12,16 +12,16 @@ export class Group {
         this.size = this.userlist.length;
     } 
     
-    adduser(user:User):void {
+    addUser(user:User):void {
         this.size++;
         this.userlist.push(user);
     }
     
-    getusers():User[] {
+    getUsers():User[] {
         return this.userlist;
     }
     
-    deleteuser(user:User):void {
+    deleteUser(user:User):void {
         var i = this.userlist.indexOf(user);
         if (i != -1) {
             this.size--;

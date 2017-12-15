@@ -7,35 +7,35 @@ import mocha = require('mocha');
 import assert = require('assert');
 
 
-describe('FactoryTest', function() {
+describe('ConstructorTest', function() {
   
     let newfactory:TableFactory;
     
-    describe('#createFactoryTest', function() {
-        it('default factory should be an instance of TableFactory', function() {
+    describe('#FactoryTest', function() {
+        it('test factory instantiaion', function() {
             newfactory = new TableFactoryImpl();
             assert.deepEqual(new TableFactoryImpl(), newfactory);
         });
     });
     
-    describe('#createUserFactoryTest', function() {
-        it('user factory should be an instance of TableFactory', function() {
-            let userfactory = newfactory.createTable("UserTable");
-            assert.deepEqual(new TableFactoryImpl(), userfactory);
+    describe('#UserTableTest', function() {
+        it('test usertable instantiaion', function() {
+            let usertable = newfactory.createTable("UserTable");
+            assert.deepEqual(new TableFactoryImpl(), usertable);
         });
     });
     
-    describe('#createGroupFactoryTest', function() {
-        it('group factory should be an instance of TableFactory', function() {
-            let groupfactory = newfactory.createTable("GroupTable");
-            assert.deepEqual(new TableFactoryImpl(), groupfactory);
+    describe('#GroupTableTest', function() {
+        it('test grouptable instantiaion', function() {
+            let grouptable = newfactory.createTable("GroupTable");
+            assert.deepEqual(new TableFactoryImpl(), grouptable);
         });
     });
     
 });
 
 
-describe('UserTest', function() {
+describe('UserClassTest', function() {
     
     let user:User;
     
@@ -43,33 +43,33 @@ describe('UserTest', function() {
         user = new User("Weglchri15", "Christopher", 23, "Graz");
     });
     
-    describe('#userIdTest', function () {
-        it('user id matching', function () {
+    describe('#UserTest', function () {
+        it('compare user id', function () {
             assert.equal("Weglchri15", user._id);
         });
     });
     
-    describe('#userNameTest', function () {
-        it('user name matching', function () {       
+    describe('#UserTest', function () {
+        it('compare user name', function () {       
             assert.equal("Christopher", user.name);            
         });
     });
     
-    describe('#userAgeTest', function () {
-        it('user age matching', function () {       
+    describe('#UserTest', function () {
+        it('comapare user age', function () {       
             assert.equal(23, user.age);            
         });
     });
     
-    describe('#userAddressTest', function () {
-        it('user address matching', function () {       
+    describe('#UserTest', function () {
+        it('compare user address', function () {       
             assert.equal("Graz", user.address);            
         });
     });
     
 });
 
-describe('GroupTest', function() {
+describe('GroupClassTest', function() {
    
     let group:Group;
     let user:User;
@@ -79,32 +79,32 @@ describe('GroupTest', function() {
        user = new User("Weglchri15", "Christopher", 23, "Graz");
     });
             
-    describe('#groupIdTest', function () {
-        it('group id matching', function () {
+    describe('#GroupTest', function () {
+        it('test group id', function () {
             assert.equal("FH-Group", group._id);
         });
     });
     
-    describe('#groupUserAddTest', function () {
-        it('group user add', function () {
-            group.adduser(user);
-            assert.equal(1, group.getusers().length);
-            assert.equal("Weglchri15", (group.getusers()[0])._id);
+    describe('#GroupTest', function () {
+        it('test group get users', function () {
+            group.addUser(user);
+            assert.equal(1, group.getUsers().length);
+            assert.equal("Weglchri15", (group.getUsers()[0])._id);
         });
     });
     
-    describe('#groupUserDeleteTest', function () {
-        it('group user delete', function () {
-            group.adduser(user);
-            assert.equal(1, group.getusers().length);
-            group.deleteuser(user);
-            assert.equal(0, group.getusers().length);    
+    describe('#GroupTest', function () {
+        it('test group delete user', function () {
+            group.addUser(user);
+            assert.equal(1, group.getUsers().length);
+            group.deleteUser(user);
+            assert.equal(0, group.getUsers().length);    
         });
     });
     
-    describe('#groupSizeTest', function () {
-        it('group size matching', function () {
-            group.adduser(user);
+    describe('#GroupTest', function () {
+        it('test group size', function () {
+            group.addUser(user);
             assert.equal(1, group.size);
         });
     });

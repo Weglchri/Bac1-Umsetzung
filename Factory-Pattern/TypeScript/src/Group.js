@@ -6,14 +6,14 @@ var Group = /** @class */ (function () {
         this.userlist = [];
         this.size = this.userlist.length;
     }
-    Group.prototype.adduser = function (user) {
+    Group.prototype.addUser = function (user) {
         this.size++;
         this.userlist.push(user);
     };
-    Group.prototype.getusers = function () {
+    Group.prototype.getUsers = function () {
         return this.userlist;
     };
-    Group.prototype.deleteuser = function (user) {
+    Group.prototype.deleteUser = function (user) {
         var i = this.userlist.indexOf(user);
         if (i != -1) {
             this.size--;
