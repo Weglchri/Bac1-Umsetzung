@@ -4,10 +4,11 @@
   "description": "singleton-pattern",
   "main": "Test.js",
   "directories": {
-    "test": "test"
+    "test": "mocha"
   },
   "scripts": {
-    "test": "mocha"
+    "pretest": "tsc test/Test.ts",
+    "test": "mocha -- test/Test.js "
   },
   "repository": {
     "type": "git",
