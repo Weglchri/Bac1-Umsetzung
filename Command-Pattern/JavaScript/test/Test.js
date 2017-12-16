@@ -77,17 +77,18 @@ describe('CommandChainTest', function () {
         Button_B = new SwordSlash(knight);
         Button_C = new JumpMove(knight);
         controller = new Controller();
+        logger = new Logger();
 
     });
 
     describe('#ControllerTest', function () {
         it('test pressing controller buttons', function () {
             controller.press(Button_A); //press shieldblock mapped on ButtonA
-            assert.equal("shieldblock", new Logger().lastLoggedItem());
+            assert.equal("shieldblock", logger.lastLoggedItem());
             controller.press(Button_B); //press swordslash mapped on ButtonB
-            assert.equal("swordslash", new Logger().lastLoggedItem());
+            assert.equal("swordslash", logger.lastLoggedItem());
             controller.press(Button_C); //press jumpmove mapped on ButtonC 
-            assert.equal("jumpmove", new Logger().lastLoggedItem());
+            assert.equal("jumpmove", logger.lastLoggedItem());
         });
     });
 

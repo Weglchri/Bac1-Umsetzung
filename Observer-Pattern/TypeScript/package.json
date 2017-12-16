@@ -2,9 +2,6 @@
   "name": "observer-pattern-typescript",
   "version": "1.0.0",
   "description": "observer-pattern",
-  "directories": {
-    "test": "test"
-  },
   "scripts": {
     "pretest": "tsc test/Test.ts",
     "test": "mocha -- test/Test.js"

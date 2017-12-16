@@ -8,7 +8,6 @@ export class DataCheck {
     constructor() {}
     
     checkInsurance(person:Person):boolean {
-        
         if(person.age < 18) {
             this.logger.printMessage("Can't set insurance for underaged person");
             return false;
@@ -21,7 +20,5 @@ export class DataCheck {
         } else {
             return true;
         } 
-    
-    }
-    
+    } 
 }

@@ -2,12 +2,9 @@
   "name": "factory-pattern-javascript",
   "version": "1.0.0",
   "description": "factory-pattern",
-  "main": "Main.js",
   "dependencies": {
     "mongodb": "^2.2.33",
-    "mongojs": "^2.4.1"
-  },
-  "devDependencies": {
+    "mongojs": "^2.4.1",
     "mocha": "^4.0.1"
   },
   "scripts": {
