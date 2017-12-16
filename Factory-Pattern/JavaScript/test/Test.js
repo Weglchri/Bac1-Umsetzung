@@ -206,6 +206,7 @@ describe('GroupTableTest', function () {
 
     describe('#GroupTable', function () {
         it('find user in group', function (done) {
+            grouptable.delete(group2);
             setTimeout(function () {
                 grouptable.findAll(function (data) {
                     assert.equal(user._id, data[0].userlist[0]._id);
