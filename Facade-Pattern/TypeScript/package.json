@@ -1,18 +1,19 @@
 {
-  "name": "singleton-pattern-javascript",
+  "name": "facade-pattern-typescript",
   "version": "1.0.0",
-  "description": "singleton-pattern",
+  "description": "facade-pattern",
   "scripts": {
-    "test": "mocha"
+    "pretest": "tsc test/Test.ts",
+    "test": "mocha -- test/Test.js "
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Weglchri/Bac1-Umsetzung.git"
   },
   "keywords": [
-    "javascript",
+    "typescript",
     "design pattern",
-    "singleton"
+    "facade"
   ],
   "author": "Christopher Wegl",
   "license": "ISC",
@@ -21,6 +22,9 @@
   },
   "homepage": "https://github.com/Weglchri/Bac1-Umsetzung#readme",
   "dependencies": {
-    "mocha": "^4.0.1"
+    "@types/mocha": "^2.2.44",
+    "@types/node": "^8.5.1",
+    "mocha": "^4.0.1",
+    "node": "^9.3.0"
   }
 }

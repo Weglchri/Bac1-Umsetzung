@@ -2,11 +2,15 @@ const mongojs = require('mongojs');
 var db = mongojs('factorydb');
 var userscollection = db.collection('users');
 
-class UserTable {
+var Table = require("./Table");
 
-    constructor() {}
+class UserTable extends Table {
 
-    findByUsername(username, callback) {
+    constructor() {
+        super();
+    }
+
+    find(username, callback) {
         db.userscollection.findOne(username, function (err, docs) {
             callback(docs);
         });

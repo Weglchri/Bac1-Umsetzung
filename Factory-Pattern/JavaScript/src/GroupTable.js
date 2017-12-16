@@ -2,11 +2,15 @@ const mongojs = require('mongojs');
 var db = mongojs('factorydb');
 var groupscollection = db.collection('group');
 
-class GroupTable {
-    
-    constructor() {}
+var Table = require("./Table");
 
-    findByGroupname(groupname, callback) {
+class GroupTable extends Table {
+    
+    constructor() {
+        super();
+    }
+
+    find(groupname, callback) {
         db.groupscollection.findOne(groupname, function (err, docs) {
             callback(docs);
         });

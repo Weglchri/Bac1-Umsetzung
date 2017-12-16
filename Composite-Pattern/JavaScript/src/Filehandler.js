@@ -6,7 +6,7 @@ class FileHandler {
 
     constructor() {}
 
-    findByFilename(filename, callback) {
+    find(filename, callback) {
         db.datacollection.findOne(filename, function (err, docs) {
             callback(docs);
         });
@@ -18,12 +18,12 @@ class FileHandler {
         });
     }
 
-    insert(user) {
-        db.datacollection.save(user);
+    insert(node) {
+        db.datacollection.save(node);
     }
 
-    delete(user) {
-        db.datacollection.remove(user);
+    delete(node) {
+        db.datacollection.remove(node);
     }
 
     deleteAll() {

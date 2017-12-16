@@ -14,11 +14,6 @@ describe('ConstructorTest', function () {
         }, 1500);
     });
     describe('#SingletonTest', function () {
-        it('test singleton instatiation failed', function () {
-            console.log(new Logger_1.Logger().getCreationDate());
-        });
-    });
-    describe('#SingletonTest', function () {
         it('test singleton instatiation', function () {
             assert.deepEqual(Logger_1.Logger.getInstance(), logger);
         });

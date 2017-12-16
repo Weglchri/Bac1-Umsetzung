@@ -2,9 +2,9 @@
   "name": "singleton-pattern-typescript",
   "version": "1.0.0",
   "description": "singleton-pattern",
-  "main": "Test.js",
   "scripts": {
-    "test": "mocha"
+    "pretest": "tsc test/Test.ts",
+    "test": "mocha -- test/Test.js "
   },
   "repository": {
     "type": "git",
@@ -12,8 +12,7 @@
   },
   "keywords": [
     "typescript",
-    "design",
-    "pattern",
+    "design pattern",
     "singleton"
   ],
   "author": "Christopher Wegl",

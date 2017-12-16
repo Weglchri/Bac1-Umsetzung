@@ -122,7 +122,7 @@ describe('UserTableTest', function () {
     describe('#UserTableTest', function () {
         it('test find specific user in usertable', function (done) {
             setTimeout(function () {
-                usertable.findByUsername(user, function (data) {
+                usertable.find(user, function (data) {
                     assert.deepEqual(user, data);
                     done();
                 });
@@ -146,7 +146,7 @@ describe('UserTableTest', function () {
         it('delete specific users in database', function (done) {
             usertable.delete(user);
             setTimeout(function () {
-                usertable.findByUsername(user, function (data) {
+                usertable.find(user, function (data) {
                     assert.equal(null, data);
                     done();
                 });
@@ -184,7 +184,7 @@ describe('GroupTableTest', function () {
     describe('#GroupTable', function () {
         it('find specific group in database', function (done) {
             setTimeout(function () {
-                grouptable.findByGroupname(group, function (data) {
+                grouptable.find(group, function (data) {
                     assert.deepEqual(group, data);
                     done();
                 });
