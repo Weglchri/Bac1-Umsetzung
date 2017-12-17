@@ -15,8 +15,7 @@ Mongodb: 2.2.33
 
 <p>Implemented logger class build with the singleton pattern used in several use cases.</p>
 
-<p>Logger with print and log methods can fullfill several actions for the caller.</p>
-
+<p>Standard logger class with methods to print and log errors or specific messages.</p>
 
 <h3>Factory</h3>
 
