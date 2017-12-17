@@ -63,9 +63,9 @@ Mongodb: 2.2.33
 
 <p>This command pattern implementation represents a simple real world example of a game character, which gets a set of action movesets through the command pattern.</p>
     
-<p>Command class therefore is representing the interface for the movesets.</p><br>
-<p>Knight class as receiver which executes the triggered actions.</p><br>
-<p>The controller as Invoker provides the interface for the interaction of this pattern.</p><br>
+<p>Command class therefore is representing the interface for the movesets.
+Knight class as receiver which executes the triggered actions.
+The controller as Invoker provides the interface for the interaction of this pattern.</p>
 
 
 
