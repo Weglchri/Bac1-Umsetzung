@@ -1,6 +1,7 @@
 import {Participant} from "./../src/Participant"
 import {Observer} from "./../src/Observer"
 import {ObserverFactory} from "./../src/ObserverFactory"
+import {ObserverType} from "./../src/ObserverType"
 import {Logger} from "./../src/Logger"
 import {ValidationObserver} from "./../src/ValidationObserver"
 import {NotificationObserver} from "./../src/NotificationObserver"
@@ -32,8 +33,8 @@ describe('ConstructorTest', function () {
 
     describe('#ObserverTest', function () {
         it('test observer instatiations', function () {
-            assert.deepEqual(validationobserver, observerfactory.createObserver("validation"));
-            assert.deepEqual(notificationobserver, observerfactory.createObserver("notification"));
+            assert.deepEqual(validationobserver, observerfactory.createObserver(ObserverType.VALIDATION));
+            assert.deepEqual(notificationobserver, observerfactory.createObserver(ObserverType.NOTIFIACTION));
         });
     });
 
@@ -91,8 +92,8 @@ describe('ObserverClassTest', function () {
         logger = Logger.getInstance();
         participant = new Participant(1, "Button");
         observerfactory = new ObserverFactory();
-        validationobserver = observerfactory.createObserver("validation");
-        notificationobserver = observerfactory.createObserver("notification");
+        validationobserver = observerfactory.createObserver(ObserverType.VALIDATION);
+        notificationobserver = observerfactory.createObserver(ObserverType.NOTIFIACTION);
         participant.addObserver(validationobserver);
         participant.addObserver(notificationobserver);
     });

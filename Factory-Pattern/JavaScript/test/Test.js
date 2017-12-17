@@ -1,8 +1,10 @@
 var TableFactory = require('./../src/TableFactory');
+var TableType = require('./../src/TableType');
 var GroupTable = require('./../src/GroupTable');
 var UserTable = require('./../src/UserTable');
 var Group = require("./../src/Group");
 var User = require("./../src/User");
+
 
 var assert = require('assert');
 
@@ -23,14 +25,14 @@ describe('ConstructorTest', function () {
 
     describe('#UserTableTest', function () {
         it('test userTable creation', function () {
-            let usertable = newfactory.createTable("UserTable");
+            let usertable = newfactory.createTable(TableType.USERTABLE);
             assert.deepEqual(new UserTable(), usertable);
         });
     });
 
     describe('#createGroupFactoryTest', function () {
         it('test groupTable creation', function () {
-            let grouptable = newfactory.createTable("GroupTable");
+            let grouptable = newfactory.createTable(TableType.GROUPTABLE);
             assert.deepEqual(new GroupTable(), grouptable);
         });
     });

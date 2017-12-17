@@ -2,6 +2,7 @@ var Subject = require("./../src/Subject");
 var Participant = require("./../src/Participant");
 var Observer = require("./../src/Observer");
 var ObserverFactory = require("./../src/ObserverFactory");
+var ObserverType = require("./../src/ObserverType");
 var Logger = require("./../src/Logger");
 
 var assert = require('assert');
@@ -24,8 +25,8 @@ describe('ConstructorTest', function () {
 
     describe('#ObserverTest', function () {
         it('test observer instatiations', function () {
-            assert.deepEqual(new Observer(), observerfactory.createObserver("validation"));
-            assert.deepEqual(new Observer(), observerfactory.createObserver("notification"));
+            assert.deepEqual(new Observer(), observerfactory.createObserver(ObserverType.VALIDATION));
+            assert.deepEqual(new Observer(), observerfactory.createObserver(ObserverType.NOTIFICATION));
         });
     });
 
@@ -83,8 +84,8 @@ describe('ObserverClassTest', function () {
         logger = new Logger();
         participant = new Participant(1, "Button");
         observerfactory = new ObserverFactory();
-        validationobserver = observerfactory.createObserver("validation");
-        notificationobserver = observerfactory.createObserver("notification");
+        validationobserver = observerfactory.createObserver(ObserverType.VALIDATION);
+        notificationobserver = observerfactory.createObserver(ObserverType.NOTIFICATION);
         participant.addObserver(validationobserver);
         participant.addObserver(notificationobserver);
     });

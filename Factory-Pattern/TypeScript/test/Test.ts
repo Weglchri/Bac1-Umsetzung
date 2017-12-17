@@ -3,6 +3,8 @@ import { TableFactory } from "./../src/TableFactory"
 import { TableFactoryImpl } from "./../src/TableFactoryImpl"
 import { User } from "./../src/User"
 import { Group } from "./../src/Group"
+import { TableType } from "./../src/TableType"
+
 import mocha = require('mocha');
 import assert = require('assert');
 

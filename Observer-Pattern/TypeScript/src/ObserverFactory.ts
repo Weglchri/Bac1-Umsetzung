@@ -5,9 +5,9 @@ export class ObserverFactory {
     constructor() {}
     createObserver(type:string) {
         switch (type) {
-            case "validation":
+            case "ValidationObserver":
                 return new ValidationObserver();
-            case "notification":
+            case "NotificationObserver":
                 return new NotificationObserver();
             default:
                 console.log(new Error("undefined factory type"));

@@ -2,6 +2,7 @@
 exports.__esModule = true;
 var Participant_1 = require("./../src/Participant");
 var ObserverFactory_1 = require("./../src/ObserverFactory");
+var ObserverType_1 = require("./../src/ObserverType");
 var Logger_1 = require("./../src/Logger");
 var ValidationObserver_1 = require("./../src/ValidationObserver");
 var NotificationObserver_1 = require("./../src/NotificationObserver");
@@ -22,8 +23,8 @@ describe('ConstructorTest', function () {
     });
     describe('#ObserverTest', function () {
         it('test observer instatiations', function () {
-            assert.deepEqual(validationobserver, observerfactory.createObserver("validation"));
-            assert.deepEqual(notificationobserver, observerfactory.createObserver("notification"));
+            assert.deepEqual(validationobserver, observerfactory.createObserver(ObserverType_1.ObserverType.VALIDATION));
+            assert.deepEqual(notificationobserver, observerfactory.createObserver(ObserverType_1.ObserverType.NOTIFIACTION));
         });
     });
     describe('#ParticipantTest', function () {
@@ -67,8 +68,8 @@ describe('ObserverClassTest', function () {
         logger = Logger_1.Logger.getInstance();
         participant = new Participant_1.Participant(1, "Button");
         observerfactory = new ObserverFactory_1.ObserverFactory();
-        validationobserver = observerfactory.createObserver("validation");
-        notificationobserver = observerfactory.createObserver("notification");
+        validationobserver = observerfactory.createObserver(ObserverType_1.ObserverType.VALIDATION);
+        notificationobserver = observerfactory.createObserver(ObserverType_1.ObserverType.NOTIFIACTION);
         participant.addObserver(validationobserver);
         participant.addObserver(notificationobserver);
     });

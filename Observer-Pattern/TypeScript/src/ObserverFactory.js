@@ -7,9 +7,9 @@ var ObserverFactory = /** @class */ (function () {
     }
     ObserverFactory.prototype.createObserver = function (type) {
         switch (type) {
-            case "validation":
+            case "ValidationObserver":
                 return new ValidationObserver_1.ValidationObserver();
-            case "notification":
+            case "NotificationObserver":
                 return new NotificationObserver_1.NotificationObserver();
             default:
                 console.log(new Error("undefined factory type"));
