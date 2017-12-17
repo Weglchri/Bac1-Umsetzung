@@ -17,6 +17,7 @@ Mongodb: 2.2.33
 
 <p>Standard logger class with methods to print and log errors or specific messages.</p>
 
+
 <h3>Factory</h3>
 
 <p>Implemented factory can create usertable or grouptable which represents 
