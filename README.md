@@ -15,9 +15,7 @@ Mongodb: 2.2.33
 
 <p>Implemented logger class build with the singleton pattern used in several use cases.</p>
 
-<p>Logger with print and log methods</p><br>
-
-<p></p><br>
+<p>Logger with print and log methods</p>
 
 
 <h3>Factory</h3>
@@ -26,8 +24,8 @@ Mongodb: 2.2.33
     an data access object for a filebased database (DAO).</p>
 
 
-<p>TableFactory creates an DAO after given keyword from TableType</p><br>
-<p>Table provides an interface for database DAOs</p><br>
+<p>TableFactory creates an DAO after given keyword from TableType</p>
+<p>Table provides an interface for database DAOs</p>
 
 
 <h2>Structural Pattern</h2>
@@ -36,10 +34,10 @@ Mongodb: 2.2.33
 
 <p>Represents an facade pattern which provides a method to intimitade an fictional validation check for Insurances of their customers</p>
     
-<p>AccountService describes the facade which interacts which:</p><br>    
-<p>Validator: Input-vadlidation</p><br>  
-<p>DataCheck: Data-validaton</p><br>  
-<p>Logger: Data-logging</p><br> 
+<p>AccountService describes the facade which interacts which:</p>   
+<p>Validator: Input-vadlidation</p>  
+<p>DataCheck: Data-validaton</p>  
+<p>Logger: Data-logging</p>
 
 
 <h3>Composite</h3>
