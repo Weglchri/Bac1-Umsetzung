@@ -13,7 +13,7 @@ describe('ConstructorTest', function () {
             assert.deepEqual(new Person(), person);
         });
     });
-    
+
     describe('#AccountServiceTest', function () {
         it('test accountservice instatiation', function () {
             let accountservice = new AccountService();
@@ -30,7 +30,7 @@ describe('AccountServiceTest', function () {
     let person2;
     let person3;
     let person4;
-    
+
     const PERMITTED = true;
     const NOT_PERMITTED = false;
 
@@ -53,30 +53,36 @@ describe('AccountServiceTest', function () {
     });
 
     describe('#AccountServiceTest', function () {
-        it('test insurance permission person1', function () {
-            let permission = accountservice.checkPersonInsuranceClaim(person1);
-            assert.equal(PERMITTED, permission);
+        it('test insurance permission person1', function (done) {
+            accountservice.checkPersonInsuranceClaim(person1, function (permission) {
+                assert.equal(PERMITTED, permission);
+                done();
+            });
+
         });
     });
 
     describe('#AccountsServiceTest', function () {
         it('test insurance permission person2', function () {
-            let permission = accountservice.checkPersonInsuranceClaim(person2);
-            assert.equal(PERMITTED, permission);
+            let permission = accountservice.checkPersonInsuranceClaim(person2, function (permission) {
+                assert.equal(PERMITTED, permission);
+            });
         });
     });
 
     describe('#AccountsServiceTest', function () {
         it('test insurance permission person3', function () {
-            let permission = accountservice.checkPersonInsuranceClaim(person3);
-            assert.equal(NOT_PERMITTED, permission);
+            let permission = accountservice.checkPersonInsuranceClaim(person3, function (permission) {
+                assert.equal(NOT_PERMITTED, permission);
+            });
         });
     });
 
     describe('#AccountsServiceTest', function () {
         it('test insurance permission person4', function () {
-            let permission = accountservice.checkPersonInsuranceClaim(person4);
-            assert.equal(NOT_PERMITTED, permission);
+            let permission = accountservice.checkPersonInsuranceClaim(person4, function(permission){
+                 assert.equal(NOT_PERMITTED, permission);
+            });
         });
     });
 
