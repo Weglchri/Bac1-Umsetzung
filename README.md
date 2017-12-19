@@ -1,5 +1,4 @@
-# Bac1-Umsetzung
-Bac1-Implementation
+# Bachelorarbeit-1-Umsetzung
 
 Reposity contains listed following design patterns implemented with ES6 standard.
 
