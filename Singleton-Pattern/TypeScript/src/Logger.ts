@@ -1,18 +1,13 @@
-
-
 export class Logger {
 
-    private static instance: Logger;
+    private static INSTANCE:Logger = new Logger();
     private static logs: string[] = new Array<string>();
     private static date = new Date();
     
     private constructor() {}
  
-    public static getInstance() {
-        if (this.instance === null || this.instance === undefined) {
-            this.instance = new Logger();
-        }
-        return this.instance;
+    public static getInstance():Logger {
+        return Logger.INSTANCE;
     }
     
     getCreationDate():Date {

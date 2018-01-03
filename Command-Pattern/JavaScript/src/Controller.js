@@ -3,7 +3,7 @@ class Controller {
     constructor() {}
     
     press(command) {
-        return command.execute();
+    	command.execute();
     }       
 }
  

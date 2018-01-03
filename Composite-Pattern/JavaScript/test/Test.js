@@ -8,13 +8,6 @@ var assert = require('assert');
 
 
 describe('ConstructorTest', function () {
-    
-    describe('#NodeTest', function () {
-        it('node instatiation test', function () {
-            let node = new Node();
-            assert.deepEqual(new Node(), node);
-        });
-    });
 
     describe('#FolderTest', function () {
         it('folder instatiation test', function () {
@@ -29,14 +22,13 @@ describe('ConstructorTest', function () {
             assert.deepEqual(new File, file);
         });
     });
-    
+
     describe('#FileHandlerTest', function () {
         it('filehandler instatiation test', function () {
-            let  filehandler = new Filehandler();
+            let filehandler = new Filehandler();
             assert.deepEqual(new Filehandler(), filehandler);
         });
     });
-
 });
 
 
@@ -71,7 +63,6 @@ describe('CompositeStructurTest', function () {
             assert.equal(3, folder1.getNumberOfFiles());
         });
     });
-
 });
 
 
@@ -98,9 +89,9 @@ describe('CompositeDatabaseTest', function () {
         folder1.addNode(folder3);
         folder1.addNode(file3);
     });
-    
-    after(function(){
-       filehandler.deleteAll(); 
+
+    after(function () {
+        filehandler.deleteAll();
     });
 
     describe('#FileHandlerTest', function () {
@@ -114,7 +105,7 @@ describe('CompositeDatabaseTest', function () {
             }, 100);
         });
     });
-    
+
     describe('#FileHandlerTest', function () {
         it('test folder structure', function (done) {
             filehandler.insert(folder1);

@@ -1,5 +1,5 @@
 import { Observer } from "./Observer" 
-import { Participant } from "./Participant"
+import { Component } from "./Component"
 import { Logger } from "./Logger";
 
 
@@ -9,7 +9,7 @@ export class ValidationObserver implements Observer {
     
     constructor() {}
 
-    update(ctx:Participant) {
+    update(ctx:Component) {
         if (ctx.name === undefined || ctx.name === null) {
             this.logger.throwError("Name can't be undefined or null");
         } else if (ctx.name === "") {

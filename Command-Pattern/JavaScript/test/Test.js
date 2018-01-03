@@ -26,13 +26,6 @@ describe('ConstructorTest', function () {
         });
     });
 
-    describe('#CommandTest', function () {
-        it('test command instantiation', function () {
-            let command = new Command();
-            assert.deepEqual(new Command(), command);
-        });
-    });
-
     describe('#JumpMoveTest', function () {
         it('test jumpmove instantiation', function () {
             let jumpmove = new JumpMove();

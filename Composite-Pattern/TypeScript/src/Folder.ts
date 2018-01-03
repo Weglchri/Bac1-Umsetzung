@@ -11,9 +11,9 @@ export class Folder extends Node {
     }
 
     addNode(node:Node):void {
-        if (node) {
-            this.nodes.push(node);
-        }
+        if (!node) 
+            throw new Error("Can't be null");
+        this.nodes.push(node);
     }
 
     getNodes():Node[] {

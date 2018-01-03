@@ -12,7 +12,7 @@ var TableFactoryImpl = /** @class */ (function () {
             case "GroupTable":
                 return new GroupTable_1.GroupTable();
             default:
-                console.log(new Error("undefined factory type"));
+                throw new Error("Undefined factory type");
         }
     };
     return TableFactoryImpl;

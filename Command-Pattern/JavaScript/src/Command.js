@@ -1,5 +1,9 @@
 class Command {
-    constructor() {}
+    constructor() {
+        if (this.constructor === Command) {
+            throw new Error("Can't instantiate abstract command");
+        }
+    }
     execute() {}
 }
 

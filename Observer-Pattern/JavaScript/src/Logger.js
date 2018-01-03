@@ -3,7 +3,7 @@ let instance = null;
 
 class Logger {
     constructor() {
-        if(!instance){
+        if(!instance) {
             instance = this;
         }
         this.time = new Date();

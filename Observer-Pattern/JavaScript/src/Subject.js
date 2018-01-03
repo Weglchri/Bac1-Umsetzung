@@ -1,10 +1,14 @@
+var Observer = require("./Observer");
+
 class Subject {
     constructor() {
         this.observers = [];
     }
 
     addObserver(observer) {
-        this.observers.push(observer);
+        if (observer instanceof Observer) {
+			this.observers.push(observer);
+		}
     }
 
     removeObserver(observer) {
@@ -16,8 +20,8 @@ class Subject {
     }
 
     notify() {
-        for (var i = 0; i < this.observers.length; i++) {
-            this.observers[i].update(this);
+        for (let observer of this.observers) {
+            observer.update(this);
         }
     }
 }

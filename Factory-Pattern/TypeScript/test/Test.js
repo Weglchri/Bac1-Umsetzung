@@ -3,6 +3,7 @@ exports.__esModule = true;
 var TableFactoryImpl_1 = require("./../src/TableFactoryImpl");
 var User_1 = require("./../src/User");
 var Group_1 = require("./../src/Group");
+var TableType_1 = require("./../src/TableType");
 var assert = require("assert");
 describe('ConstructorTest', function () {
     var newfactory;
@@ -14,13 +15,13 @@ describe('ConstructorTest', function () {
     });
     describe('#UserTableTest', function () {
         it('test usertable instantiaion', function () {
-            var usertable = newfactory.createTable("UserTable");
+            var usertable = newfactory.createTable(TableType_1.TableType.USERTABLE);
             assert.deepEqual(new TableFactoryImpl_1.TableFactoryImpl(), usertable);
         });
     });
     describe('#GroupTableTest', function () {
         it('test grouptable instantiaion', function () {
-            var grouptable = newfactory.createTable("GroupTable");
+            var grouptable = newfactory.createTable(TableType_1.TableType.GROUPTABLE);
             assert.deepEqual(new TableFactoryImpl_1.TableFactoryImpl(), grouptable);
         });
     });

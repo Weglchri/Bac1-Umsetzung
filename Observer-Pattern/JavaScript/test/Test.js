@@ -1,5 +1,5 @@
 var Subject = require("./../src/Subject");
-var Participant = require("./../src/Participant");
+var Component = require("./../src/Component");
 var Observer = require("./../src/Observer");
 var ObserverFactory = require("./../src/ObserverFactory");
 var ObserverType = require("./../src/ObserverType");
@@ -23,17 +23,10 @@ describe('ConstructorTest', function () {
         });
     });
 
-    describe('#ObserverTest', function () {
-        it('test observer instatiations', function () {
-            assert.deepEqual(new Observer(), observerfactory.createObserver(ObserverType.VALIDATION));
-            assert.deepEqual(new Observer(), observerfactory.createObserver(ObserverType.NOTIFICATION));
-        });
-    });
-
     describe('#ParticipantTest', function () {
         it('test participant instatiations', function () {
-            let participant = new Participant();
-            assert.deepEqual(new Participant(), participant);
+            let component = new Component();
+            assert.deepEqual(new Component(), component);
         });
     });
 
@@ -49,23 +42,23 @@ describe('ConstructorTest', function () {
 
 describe('ParticipatorClassTest', function () {
 
-    let participator;
+    let component;
 
     before(function () {
-        participator = new Participant(1, "Button");
+        component = new Component(1, "Button");
     });
 
     describe('#ParticipatorTest', function () {
         it('compare participant values', function () {
-            assert.equal(1, participator.id);
-            assert.equal("Button", participator.name);
+            assert.equal(1, component.getId);
+            assert.equal("Button", component.getName);
         });
     });
 
     describe('#ParticipatorTest', function () {
         it('compare changed participant values', function () {
-            participator.setId = null;
-            assert.equal(1, participator.id);
+            component.setId = null;
+            assert.equal(null, component.getId);
         });
     });
 
@@ -74,7 +67,7 @@ describe('ParticipatorClassTest', function () {
 
 describe('ObserverClassTest', function () {
 
-    let participant;
+    let component;
     let validationobserver;
     let notificationobserver;
     let observerfactory;
@@ -82,40 +75,40 @@ describe('ObserverClassTest', function () {
 
     before(function () {
         logger = new Logger();
-        participant = new Participant(1, "Button");
+        component = new Component(1, "Button");
         observerfactory = new ObserverFactory();
         validationobserver = observerfactory.createObserver(ObserverType.VALIDATION);
         notificationobserver = observerfactory.createObserver(ObserverType.NOTIFICATION);
-        participant.addObserver(validationobserver);
-        participant.addObserver(notificationobserver);
+        component.addObserver(validationobserver);
+        component.addObserver(notificationobserver);
     });
 
     describe('#ObserverTest', function () {
         it('test participant observer list add', function () {
-            assert.deepEqual(validationobserver, participant.observers[0]);
-            assert.deepEqual(notificationobserver, participant.observers[1]);
+            assert.deepEqual(validationobserver, component.observers[0]);
+            assert.deepEqual(notificationobserver, component.observers[1]);
         });
     });
 
     describe('#ObserverTest', function () {
         it('test participant observer list removal', function () {
-            participant.removeObserver(notificationobserver);
-            assert.equal(1, participant.observers.length);
-            assert.deepEqual(validationobserver, participant.observers[0]);
+            component.removeObserver(notificationobserver);
+            assert.equal(1, component.observers.length);
+            assert.deepEqual(validationobserver, component.observers[0]);
         });
     });
 
     describe('#ObserverTest', function () {
         it('test validationobserver successful', function () {
-            participant.setName("Specific Button");
-            assert.equal("Specific Button", participant.name);
+            component.setName = "Specific Button";
+            assert.equal("Specific Button", component.getName);
             assert.equal("Correct input", logger.lastLoggedItem());
         });
     });
 
     describe('#ObserverTest', function () {
         it('test validationobserver failed', function () {
-            participant.setName(null);
+            component.setName = null;
             const err = new Error("Error: Name can't be undefined or null");
             assert.equal(err.message, logger.lastLoggedItem());
         });
@@ -123,8 +116,8 @@ describe('ObserverClassTest', function () {
 
     describe('#ObserverTest', function () {
         it('test notificationobserver', function () {
-            participant.addObserver(notificationobserver);
-            participant.setName("New html header");
+            component.addObserver(notificationobserver);
+            component.setName = "New html header";
         });
     });
 

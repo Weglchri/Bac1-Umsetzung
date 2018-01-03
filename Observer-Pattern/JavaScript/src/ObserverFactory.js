@@ -10,7 +10,7 @@ class ObserverFactory {
             case "NotificationObserver":
                 return new NotificationObserver();
             default:
-                console.log(new Error("undefined factory type"));
+                console.log(new Error("Undefined factory type"));
         }
     }
 }

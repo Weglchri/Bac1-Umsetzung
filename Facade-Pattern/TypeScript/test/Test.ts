@@ -55,29 +55,29 @@ describe('AccountServiceTest', function () {
     });
 
     describe('#AccountServiceTest', function () {
-        it('test insurance permission person1', function () {
-            let permission = accountservice.checkPersonInsuranceClaim(person1);
+        it('test insurance permission person1', async function () {
+            let permission = await accountservice.checkPersonInsuranceClaim(person1);
             assert.equal(PERMITTED, permission);
         });
     });
 
     describe('#AccountsServiceTest', function () {
-        it('test insurance permission person2', function () {
-            let permission = accountservice.checkPersonInsuranceClaim(person2);
+        it('test insurance permission person2', async function () {
+            let permission = await accountservice.checkPersonInsuranceClaim(person2);
             assert.equal(PERMITTED, permission);
         });
     });
 
     describe('#AccountsServiceTest', function () {
-        it('test insurance permission person3', function () {
-            let permission = accountservice.checkPersonInsuranceClaim(person3);
+        it('test insurance permission person3', async function () {
+            let permission = await accountservice.checkPersonInsuranceClaim(person3);
             assert.equal(NOT_PERMITTED, permission);
         });
     });
 
     describe('#AccountsServiceTest', function () {
-        it('test insurance permission person4', function () {
-            let permission = accountservice.checkPersonInsuranceClaim(person4);
+        it('test insurance permission person4', async function () {
+            let permission = await accountservice.checkPersonInsuranceClaim(person4);
             assert.equal(NOT_PERMITTED, permission);
         });
     });

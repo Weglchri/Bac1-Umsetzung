@@ -2,23 +2,25 @@ import {Logger} from "./Logger"
 import {Person} from "./Person"
 
 export class DataCheck {
-    
-    logger:Logger = Logger.getInstance();
-    
+        
     constructor() {}
     
-    checkInsurance(person:Person):boolean {
-        if(person.age < 18) {
-            this.logger.printMessage("Can't set insurance for underaged person");
-            return false;
-        } else if (person.account === "invalid") {
-            this.logger.printMessage("Can't set insurance with invalid account");
-            return false;
-        } else if (person.insurance === "yes") {
-            this.logger.printMessage("Person already has a insurance");
-            return false;
-        } else {
-            return true;
-        } 
+    checkInsurance(person:Person):Promise<boolean> {
+        return new Promise<boolean>(function(resolve) {
+            setTimeout(function() {
+                if(person.age < 18) {
+                    Logger.getInstance().printMessage("Can't set insurance for underaged person");
+                    resolve(false);
+                } else if (person.account === "invalid") {
+                    Logger.getInstance().printMessage("Can't set insurance with invalid account");
+                    resolve(false);
+                } else if (person.insurance === "yes") {
+                    Logger.getInstance().printMessage("Person already has a insurance");
+                    resolve(false);
+                } else {
+                    resolve(true);
+                } 
+            }, 1000);
+        });
     } 
 }

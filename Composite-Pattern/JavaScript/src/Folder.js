@@ -8,8 +8,10 @@ class Folder extends Node {
     }
 
     addNode(node) {
-        if (node) {
+        if (node instanceof Node) {
             this.nodes.push(node);
+        } else {
+            throw new Error("Can't insert, not a node type");
         }
     }
 

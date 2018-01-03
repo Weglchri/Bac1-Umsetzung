@@ -3,24 +3,27 @@ exports.__esModule = true;
 var Logger_1 = require("./Logger");
 var DataCheck = /** @class */ (function () {
     function DataCheck() {
-        this.logger = Logger_1.Logger.getInstance();
     }
     DataCheck.prototype.checkInsurance = function (person) {
-        if (person.age < 18) {
-            this.logger.printMessage("Can't set insurance for underaged person");
-            return false;
-        }
-        else if (person.account === "invalid") {
-            this.logger.printMessage("Can't set insurance with invalid account");
-            return false;
-        }
-        else if (person.insurance === "yes") {
-            this.logger.printMessage("Person already has a insurance");
-            return false;
-        }
-        else {
-            return true;
-        }
+        return new Promise(function (resolve) {
+            setTimeout(function () {
+                if (person.age < 18) {
+                    Logger_1.Logger.getInstance().printMessage("Can't set insurance for underaged person");
+                    resolve(false);
+                }
+                else if (person.account === "invalid") {
+                    Logger_1.Logger.getInstance().printMessage("Can't set insurance with invalid account");
+                    resolve(false);
+                }
+                else if (person.insurance === "yes") {
+                    Logger_1.Logger.getInstance().printMessage("Person already has a insurance");
+                    resolve(false);
+                }
+                else {
+                    resolve(true);
+                }
+            }, 1000);
+        });
     };
     return DataCheck;
 }());

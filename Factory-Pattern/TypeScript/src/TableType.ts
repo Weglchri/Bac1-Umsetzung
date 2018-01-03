@@ -1,4 +1,4 @@
 export var TableType = {
-    USERTABLE: "Usertable",
-    GROUPTABLE: "Grouptable"
+    USERTABLE: "UserTable",
+    GROUPTABLE: "GroupTable"
 }

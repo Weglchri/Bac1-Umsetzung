@@ -10,6 +10,7 @@ describe('ConstructorTest', function () {
     let logger2;
 
     before(function (done) {
+        console.log(Logger.getInstance());
         logger = new Logger();
         setTimeout(function () {
             logger2 = new Logger();

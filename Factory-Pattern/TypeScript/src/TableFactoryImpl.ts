@@ -12,7 +12,7 @@ export class TableFactoryImpl implements TableFactory {
             case "GroupTable":
                 return new GroupTable();
             default:
-                console.log(new Error("undefined factory type"));
+                throw new Error("Undefined factory type");
         }
     }
 }

@@ -1,7 +1,7 @@
 {
   "name": "composite-pattern-javascript",
   "version": "1.0.0",
-  "description": "composite-pattern",  
+  "description": "composite-pattern",
   "scripts": {
     "test": "mocha"
   },

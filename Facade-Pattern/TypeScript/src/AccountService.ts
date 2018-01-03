@@ -5,17 +5,23 @@ import {Person} from "./Person"
 
 export class AccountService {
 
-    logger:Logger = Logger.getInstance();
+    private logger:Logger;
+    private validator:Validator;
+    private datacheck:DataCheck;
     
-    constructor() {}
+    constructor() {
+        this.logger = Logger.getInstance();
+        this.validator = new Validator();
+        this.datacheck = new DataCheck();
+    }
 
-    checkPersonInsuranceClaim(person:Person):boolean {
+    async checkPersonInsuranceClaim(person:Person):Promise<boolean> {
 
         var permission = false;
 
-        if (new Validator().validatePersonData(person) === true) {
+        if (this.validator.validatePersonData(person) === true) {
 
-            let permission = new DataCheck().checkInsurance(person);
+            let permission = await this.datacheck.checkInsurance(person);
             this.logger.printMessage("Person permission: " + permission);
             return permission;
 

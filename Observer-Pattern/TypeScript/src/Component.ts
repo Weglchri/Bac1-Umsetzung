@@ -1,6 +1,6 @@
 import { Subject } from "./Subject"
 
-export class Participant extends Subject {
+export class Component extends Subject {
     
     id:number;
     name:string;

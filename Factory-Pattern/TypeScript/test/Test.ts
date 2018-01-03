@@ -22,14 +22,14 @@ describe('ConstructorTest', function() {
     
     describe('#UserTableTest', function() {
         it('test usertable instantiaion', function() {
-            let usertable = newfactory.createTable("UserTable");
+            let usertable = newfactory.createTable(TableType.USERTABLE);
             assert.deepEqual(new TableFactoryImpl(), usertable);
         });
     });
     
     describe('#GroupTableTest', function() {
         it('test grouptable instantiaion', function() {
-            let grouptable = newfactory.createTable("GroupTable");
+            let grouptable = newfactory.createTable(TableType.GROUPTABLE);
             assert.deepEqual(new TableFactoryImpl(), grouptable);
         });
     });

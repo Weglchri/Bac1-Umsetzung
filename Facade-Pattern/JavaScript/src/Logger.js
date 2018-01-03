@@ -9,7 +9,7 @@ class Logger {
         this.logs = [];
         return instance;
     }
-
+    
     printMessage(msg) {
         console.log(msg);
     }

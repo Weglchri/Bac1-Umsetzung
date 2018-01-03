@@ -4,10 +4,7 @@ var Logger = /** @class */ (function () {
     function Logger() {
     }
     Logger.getInstance = function () {
-        if (this.instance === null || this.instance === undefined) {
-            this.instance = new Logger();
-        }
-        return this.instance;
+        return Logger.INSTANCE;
     };
     Logger.prototype.getCreationDate = function () {
         return Logger.date;
@@ -26,6 +23,7 @@ var Logger = /** @class */ (function () {
         this.logItem(err.message);
         console.log(err);
     };
+    Logger.INSTANCE = new Logger();
     Logger.logs = new Array();
     Logger.date = new Date();
     return Logger;

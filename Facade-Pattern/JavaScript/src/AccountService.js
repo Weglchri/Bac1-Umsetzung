@@ -4,26 +4,21 @@ var Logger = require("./Logger");
 
 class AccountService {
 
-    constructor() {
-        this.validator = new Validator();
-        this.datacheck = new DataCheck();
-        this.logger = new Logger();
-    }
+    constructor() {}
 
     checkPersonInsuranceClaim(person, callback) {
-
+        let vaildator = new Validator();
+        let datacheck = new DataCheck();
         var permission = false;
 
-        if (this.validator.validatePersonData(person) === true) {
-            this.datacheck.checkInsurance(person, function(permission) {
+        if (vaildator.validatePersonData(person) === true) {
+            datacheck.checkInsurance(person, function (permission) {
                 new Logger().printMessage("Person permission: " + permission);
                 callback(permission);
             });
         } else {
-
-            this.logger.printMessage("Person permission: " + permission);
+            new Logger().printMessage("Person permission: " + permission);
             callback(permission);
-
         }
     }
 }

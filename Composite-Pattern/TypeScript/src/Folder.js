@@ -20,9 +20,9 @@ var Folder = /** @class */ (function (_super) {
         return _this;
     }
     Folder.prototype.addNode = function (node) {
-        if (node) {
-            this.nodes.push(node);
-        }
+        if (!node)
+            throw new Error("Can't be null");
+        this.nodes.push(node);
     };
     Folder.prototype.getNodes = function () {
         return this.nodes;

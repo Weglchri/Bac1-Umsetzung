@@ -1,11 +1,7 @@
 var Logger = require("./Logger");
 
 class DataCheck {
-
-    constructor() {
-        this.logger = new Logger();
-    }
-
+    constructor() {}
     checkInsurance(person, callback) {
         setTimeout(function () {
             if (person.age < 18) {

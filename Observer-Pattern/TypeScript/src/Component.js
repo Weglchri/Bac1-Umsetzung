@@ -11,22 +11,22 @@ var __extends = (this && this.__extends) || (function () {
 })();
 exports.__esModule = true;
 var Subject_1 = require("./Subject");
-var Participant = /** @class */ (function (_super) {
-    __extends(Participant, _super);
-    function Participant(id, name) {
+var Component = /** @class */ (function (_super) {
+    __extends(Component, _super);
+    function Component(id, name) {
         var _this = _super.call(this) || this;
         _this.id = id;
         _this.name = name;
         return _this;
     }
-    Participant.prototype.setId = function (id) {
+    Component.prototype.setId = function (id) {
         this.id = id;
         this.notify();
     };
-    Participant.prototype.setName = function (name) {
+    Component.prototype.setName = function (name) {
         this.name = name;
         this.notify();
     };
-    return Participant;
+    return Component;
 }(Subject_1.Subject));
-exports.Participant = Participant;
+exports.Component = Component;
